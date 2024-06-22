@@ -1,0 +1,81 @@
+{
+  "name": "vite-plugin-name",
+  "version": "0.0.0",
+  "packageManager": "pnpm@9.3.0",
+  "description": "一个 vite plugin 的模板仓库，可以当做初始化 vite 插件使用",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": {
+    "name": "GolderBrother",
+    "email": "1204788939@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GolderBrother/vite-plugin-template"
+  },
+  "bugs": "",
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "vite": "^2.9.0 || ^3.0.0 || ^4.0.0 || ^5.0.0"
+  },
+  "scripts": {
+    "dev": "tsup --watch",
+    "lint": "eslint --cache .",
+    "test": "vitest run",
+    "test:watch": "vitest --watch",
+    "coverage": "vitest run --coverage",
+    "build": "tsup",
+    "start": "tsx src/index.ts",
+    "release": "bumpp && npm publish",
+    "release2": "bumpp --commit --push --tag && npm publish",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build",
+    "prettier:all": "prettier -w .",
+    "init:info": "plop --plopfile scripts/init.js",
+    "play": "pnpm -C examples run dev",
+    "play:open": "pnpm -C examples run dev:open",
+    "play:host": "pnpm -C examples run dev:host",
+    "play:build": "pnpm -C examples run build",
+    "play:preview": "pnpm -C examples run preview",
+    "play:preview:open": "pnpm -C examples run preview:open",
+    "play:preview:host": "pnpm -C examples run preview:host"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.21.1",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.22.0",
+    "eslint-config-alloy": "^4.6.2",
+    "plop": "^4.0.1",
+    "prettier": "^2.7.1",
+    "tsup": "^6.2.2",
+    "tsx": "^3.8.2",
+    "typescript": "^4.7.4",
+    "vitest": "^0.22.1"
+  },
+  "license": "MIT"
+}
